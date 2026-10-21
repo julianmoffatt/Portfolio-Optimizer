@@ -24,6 +24,7 @@ class PriceHistory(models.Model):
 
     class Meta:
         unique_together = ('asset', 'datetime', 'timeframe')
+        verbose_name_plural = 'Price History'
 
     def __str__(self):
         return f"{self.asset.ticker} {self.timeframe} {self.datetime}"
@@ -65,8 +66,14 @@ class Fundamentals(models.Model):
     total_revenue = models.BigIntegerField(null=True, blank=True)
     ebitda = models.BigIntegerField(null=True, blank=True)
 
+    # Dividendos
+    dividend_yield = models.DecimalField(max_digits=20, decimal_places=6, null=True, blank=True)
+    dividend_rate = models.DecimalField(max_digits=20, decimal_places=6, null=True, blank=True)
+    payout_ratio = models.DecimalField(max_digits=20, decimal_places=6, null=True, blank=True)
+
     class Meta:
         unique_together = ('asset', 'date')
+        verbose_name_plural = 'Fundamentals'
 
     def __str__(self):
         return f"{self.asset.ticker} {self.date}"
