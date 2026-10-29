@@ -1,0 +1,51 @@
+.add-ticker-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ticker-input {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  color: #e0e0e0;
+  padding: 8px 12px;
+  font-size: 13px;
+  width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.weight-input {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  color: #e0e0e0;
+  padding: 8px 12px;
+  font-size: 13px;
+  width: 90px;
+}
+
+.ticker-input:focus,
+.weight-input:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+
+.add-btn {
+  background: #c9a84c;
+  border: none;
+  color: #0e0e0e;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.add-btn:hover {
+  background: #dbb95d;
+}
+
+.add-btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+}

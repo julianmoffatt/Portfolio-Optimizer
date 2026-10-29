@@ -1,0 +1,67 @@
+.positions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.positions-table th {
+  font-size: 10px;
+  color: #555;
+  letter-spacing: 1px;
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.positions-table th.right,
+.positions-table td.right {
+  text-align: right;
+}
+
+.positions-table th.group-start,
+.positions-table td.group-start {
+  border-left: 1px solid #1e1e1e;
+  padding-left: 16px;
+}
+
+.positions-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #151515;
+}
+
+.positions-table tr:hover td {
+  background-color: #141414;
+}
+
+.ticker {
+  font-weight: 700;
+  color: #c9a84c;
+  letter-spacing: 1px;
+}
+
+.name {
+  color: #aaa;
+}
+
+.muted {
+  color: #555;
+  font-size: 12px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+.remove-btn:hover {
+  color: #e05c5c;
+}
+
+.empty-msg {
+  color: #444;
+  padding: 24px 8px;
+  font-size: 13px;
+}

@@ -1,0 +1,79 @@
+.portfolio-screen {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.portfolio-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-top: 16px;
+}
+
+.title-main {
+  font-size: 22px;
+  font-weight: 700;
+  color: #c9a84c;
+  letter-spacing: 2px;
+}
+
+.title-sub {
+  font-size: 13px;
+  color: #666;
+  letter-spacing: 2px;
+}
+
+.positions-section {
+  margin-top: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 1px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1e1e1e;
+  margin-bottom: 4px;
+}
+
+.section-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.total-weight {
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.rebalance-btn {
+  background: none;
+  border: 1px solid #2a2a2a;
+  color: #666;
+  padding: 3px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.rebalance-btn:hover {
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
+
+.screen-message {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.screen-message.error {
+  color: #e05c5c;
+}
