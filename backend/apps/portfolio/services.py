@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import pandas as pd
 import numpy as np
 from apps.market_data.models import PriceHistory
@@ -8,14 +8,17 @@ from .models import Portfolio, Position
 PERIODS = {
     '1M': 30,
     '6M': 180,
+    '1Y': 365,
+    '3Y': 365 * 3,
+    '5Y': 365 * 5,
     'YTD': None,
 }
 
 
 def _get_start_date(period):
-    now = datetime.now()
+    now = datetime.now(tz=timezone.utc)
     if period == 'YTD':
-        return datetime(now.year, 1, 1)
+        return datetime(now.year, 1, 1, tzinfo=timezone.utc)
     return now - timedelta(days=PERIODS[period])
 
 
@@ -36,6 +39,7 @@ def get_equity_curves(portfolio_id, period='6M'):
             continue
 
         df = pd.DataFrame(prices)
+        df['close'] = df['close'].astype(float)
         df['return_pct'] = ((df['close'] / df['close'].iloc[0]) - 1) * 100
 
         curves[position.asset.ticker] = {
@@ -53,9 +57,9 @@ def get_portfolio_header(portfolio_id, period='6M'):
         return {'weighted_return': 0, 'alpha_vs_spy': None}
 
     weighted_return = sum(
-        data['returns'][-1] * data['weight'] / 100
+        data['returns'][-1] * float(data['weight']) / 100
         for data in curves.values()
-        if data['returns']
+        if data.get('returns')
     )
 
     spy_data = curves.get('SPY')
